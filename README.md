@@ -1,1 +1,1 @@
-This is Ben's Ph Sonde project for Matura Arbeit.
+This is Ben's pH-Sonde project for his Maturaarbeit.
