@@ -118,72 +118,9 @@ def update_tbm(new_tbm):
     global tbm
     tbm = float(new_tbm)
     return tbm
+    
+ui.add_head_html('''<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet"><style>body {font-family: 'Source Sans Pro', sans-serif; font-weight: 600;}</style>''')
 
-# Add responsive design styling for mobile devices
-ui.add_head_html('''
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Source Sans Pro', sans-serif;
-            font-weight: 600;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        .container {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 10px;
-        }
-        .column {
-            width: 100%;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        button {
-            width: 100%;
-            max-width: 250px;
-            padding: 10px;
-            margin: 10px 0;
-        }
-        input[type="range"], input[type="number"] {
-            width: 100%;
-            max-width: 250px;
-        }
-        @media (max-width: 768px) {
-            .container {
-                padding: 20px;
-            }
-            .column {
-                width: 100%;
-            }
-            .grid {
-                display: grid;
-                grid-template-columns: 1fr;
-            }
-            .row {
-                display: flex;
-                flex-direction: column;
-            }
-            #graph {
-                width: 100%;
-            }
-            h2, p {
-                font-size: 1.2em;
-            }
-        }
-
-        @media (min-width: 768px) {
-            .grid {
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-    </style>
-''')
 # NETWORK ADD
 @ui.page("/network_add")
 def network_add():
