@@ -227,6 +227,6 @@ with ui.column().classes("border p-6").style("position: absolute; top: 50%; left
 ui.timer(tbm, update_ui)
 
 # Use Uvicorn to run the app for Heroku compatibility
-if __name__ == "__main__":
+if __name__ in {"__main__", "__mp_main__"}:
     port = int(os.environ.get("PORT", 5000))  # Convert port to an integer
     ui.run(native=False, port=port)  # Run the app in server mode (not native)
