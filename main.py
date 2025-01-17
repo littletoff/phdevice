@@ -5,17 +5,17 @@ from nicegui import ui
 import os
 import uvicorn
 
-# global variables
+# Global variables
 x = 0
-ph_value = 7.0  # default ph value
-water_quality = ""  # empty string, default UI water quality text
+ph_value = 7.0  # Default pH value
+water_quality = ""  # Empty string, default UI water quality text
 water_quality_2 = ""
 text_color = "#000000"
 tbm = 1  # Time between data updates in seconds
-max_measurements = 20  # maximum amount of depicted measurements in the graph
-ph_values_list = []  # List of pH Values for graph
+max_measurements = 20  # Maximum number of depicted measurements in the graph
+ph_values_list = []  # List of pH values for graph
 timestamps_list = []  # List of corresponding timestamps
-# offsets
+# Offsets
 offset = 0.00
 offset_1 = 0.00
 offset_2 = 0.00
@@ -227,6 +227,5 @@ with ui.column().classes("border p-6").style("position: absolute; top: 50%; left
 ui.timer(tbm, update_ui)
 
 # Use Uvicorn to run the app for Heroku compatibility
-import uvicorn
 port = os.environ.get("PORT", 5000)
 uvicorn.run(ui, host="0.0.0.0", port=port)
