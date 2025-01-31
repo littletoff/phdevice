@@ -128,14 +128,11 @@ ui.add_head_html('''<link href="https://fonts.googleapis.com/css2?family=Source+
 def scale_app():
     #Inject JavaScript to dynamically scale the app. Useful for Mobile integration. Scale gained through Experience, centers Web app
     ui.run_javascript("""
-    function scaleApp() {
-        let scaleFactor = Math.min(window.innerWidth / 1191, window.innerHeight / 670); 
-        document.body.style.transform = `scale(${scaleFactor})`;
-        document.body.style.transformOrigin = "center";
-    }
-    window.addEventListener("resize", scaleApp);
-    scaleApp();
-    """)
+    const meta = document.createElement('meta');
+    meta.name = "viewport";
+    meta.content = "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no";
+    document.head.appendChild(meta);
+""")
     
 # NETWORK ADD Page
 @ui.page("/network_add")
