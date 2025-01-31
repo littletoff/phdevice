@@ -68,7 +68,6 @@ def send_string_data(message, api_key):
 # Function to update both UI and graph
 def update_ui():
     global ph_value, timestamps_list, ph_values_list, x
-    scale_app() #Scales app to screensize every update
     # Get current time and data from ThingSpeak
     current_time = datetime.datetime.now().strftime("%H:%M:%S")
     new_ph_value = request_data(1)
@@ -125,26 +124,6 @@ def update_tbm(new_tbm):
     
 # Change Font
 ui.add_head_html('''<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet"><style>body {font-family: 'Source Sans Pro', sans-serif; font-weight: 600;}</style>''')
-def scale_app():
-    #Inject JavaScript to dynamically scale the app. Useful for Mobile integration. Scale gained through Experience, centers Web app
-    ui.run_javascript("""
-    const style = document.createElement('style');
-    style.innerHTML = `
-        /* For small screens */
-        @media (max-width: 600px) {
-            .text-3xl {
-                font-size: 2rem; /* Adjust text size */
-            }
-            .p-8 {
-                padding: 1rem; /* Reduce padding on smaller screens */
-            }
-            .card {
-                width: 100%; /* Full width card on mobile */
-            }
-        }
-    `;
-    document.head.appendChild(style);
-""")
     
 # NETWORK ADD Page
 @ui.page("/network_add")
