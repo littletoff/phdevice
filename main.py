@@ -128,10 +128,22 @@ ui.add_head_html('''<link href="https://fonts.googleapis.com/css2?family=Source+
 def scale_app():
     #Inject JavaScript to dynamically scale the app. Useful for Mobile integration. Scale gained through Experience, centers Web app
     ui.run_javascript("""
-    const meta = document.createElement('meta');
-    meta.name = "viewport";
-    meta.content = "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no";
-    document.head.appendChild(meta);
+    const style = document.createElement('style');
+    style.innerHTML = `
+        /* For small screens */
+        @media (max-width: 600px) {
+            .text-3xl {
+                font-size: 2rem; /* Adjust text size */
+            }
+            .p-8 {
+                padding: 1rem; /* Reduce padding on smaller screens */
+            }
+            .card {
+                width: 100%; /* Full width card on mobile */
+            }
+        }
+    `;
+    document.head.appendChild(style);
 """)
     
 # NETWORK ADD Page
